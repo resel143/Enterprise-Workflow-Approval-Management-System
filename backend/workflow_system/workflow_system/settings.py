@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config, Csv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +28,11 @@ SECRET_KEY = 'django-insecure-f+#qa)du*u#=)yf9vcd5q*)o5r11h!j-%)b$an)4hvcixc5*m&
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+DEBUG = config('DEBUG', default= True, cast=bool)
+
+SECRET_KEY = config('SECRET_KEY')
+
 
 
 # Application definition
@@ -73,11 +80,13 @@ WSGI_APPLICATION = 'workflow_system.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgres://postgres:reshul@12345@127.0.0.1:5432/workflow_db',
+        conn_max_age=600,
+    )
 }
+
+REDIS_URL = config('REDIS_URL', default='redis://127.0.0.1:6379/0')
 
 
 # Password validation
