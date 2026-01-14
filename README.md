@@ -1,150 +1,214 @@
-# Enterprise Workflow & Approval Management System – Frontend
+# Enterprise Workflow & Approval Management System
 
-This repository contains the **frontend application** for the Enterprise Workflow & Approval Management System, built using **Angular**.
+An **enterprise-grade, backend-intensive workflow and approval platform** designed to manage multi-level approvals, role-based access control, SLA tracking, audit logging, and real-time notifications.
 
-The frontend is responsible for:
-- Role-based dashboards
-- Workflow builder UI
-- Request creation & tracking
-- Approval inbox & actions
-- Notifications & audit log views
-- SLA monitoring and visual indicators
+This project is built to reflect **real-world enterprise architecture** and serves as a **major full-stack capstone project**.
 
 ---
 
-## 🏗️ Tech Stack
+## 🏗️ System Overview
 
-- **Framework:** Angular
-- **Language:** TypeScript
-- **UI Library:** Angular Material / Tailwind CSS
-- **State Management:** RxJS
-- **Authentication:** JWT-based authentication
-- **API Communication:** REST APIs
-- **Build Tool:** Angular CLI
+The system enables organizations to:
+- Define custom approval workflows
+- Submit and track requests
+- Perform multi-step approvals
+- Enforce role-based access control
+- Monitor SLA compliance
+- Maintain a complete audit trail
 
 ---
 
-## 📦 Project Structure
+## 🧩 Architecture Overview
 
+Angular Frontend
+│
+│ REST APIs (JWT Auth)
+│
+Django Backend (DRF)
+│
+PostgreSQL ─ Redis
+
+
+---
+
+## 📁 Repository Structure
+
+
+
+/
+├── backend/ # Django backend service
+├── frontend/ # Angular frontend application
+├── README.md
+
+
+---
+
+# ⚙️ Backend – Django
+
+## 🧠 Responsibilities
+- Authentication & authorization (RBAC)
+- Organization and user management
+- Workflow definition engine
+- Request lifecycle handling
+- Approval execution engine
+- SLA tracking & escalation
+- Notifications and audit logging
+
+---
+
+## 🏗️ Backend Tech Stack
+- Django
+- Django REST Framework
+- PostgreSQL
+- JWT Authentication
+- Celery + Redis
+- Django Channels (WebSockets)
+- Swagger / OpenAPI
+
+---
+
+## 📦 Backend Structure
+
+
+
+backend/
+│── accounts/ # Authentication & user management
+│── organizations/ # Organization & department management
+│── workflows/ # Workflow definitions & steps
+│── requests/ # Request lifecycle handling
+│── approvals/ # Approval engine & actions
+│── notifications/ # Email & in-app notifications
+│── auditlogs/ # System-wide audit logging
+│── core/ # Shared utilities & base classes
+│── config/ # Django project settings
+│── manage.py
+
+
+---
+
+## 🚀 Backend Setup (Quick Start)
+
+cd backend
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+
+
+Backend runs at:
+
+http://127.0.0.1:8000/
+
+---
+
+# 🎨 Frontend – Angular
+## 🧠 Responsibilities
+
+Role-based dashboards
+
+Workflow builder UI
+
+Request creation & tracking
+
+Approval inbox & actions
+
+Notifications and audit log views
+
+SLA monitoring interfaces
+
+## 🏗️ Frontend Tech Stack
+
+Angular
+
+TypeScript
+
+Angular Material / Tailwind CSS
+
+RxJS
+
+JWT-based authentication
+
+Angular CLI
+
+## 📦 Frontend Structure
 frontend/
 │── src/
-│ ├── app/
-│ │ ├── core/ # Services, guards, interceptors
-│ │ ├── shared/ # Reusable components, pipes
-│ │ ├── auth/ # Login & authentication
-│ │ ├── dashboard/ # Role-based dashboards
-│ │ ├── workflows/ # Workflow builder module
-│ │ ├── requests/ # Request creation & tracking
-│ │ ├── approvals/ # Approval inbox & actions
-│ │ ├── notifications/ # Notifications UI
-│ │ └── auditlogs/ # Audit log viewer
-│ └── environments/
-│ ├── environment.ts
-│ └── environment.prod.ts
+│   ├── app/
+│   │   ├── core/           # Services, guards, interceptors
+│   │   ├── shared/         # Reusable components
+│   │   ├── auth/           # Authentication
+│   │   ├── dashboard/      # Role-based dashboards
+│   │   ├── workflows/      # Workflow builder
+│   │   ├── requests/       # Request management
+│   │   ├── approvals/      # Approval inbox
+│   │   ├── notifications/  # Notifications UI
+│   │   └── auditlogs/      # Audit log viewer
+│   └── environments/
 
----
-
-## ⚙️ Setup Instructions
-
-### 1️⃣ Prerequisites
-
-- Node.js (v16+ recommended)
-- npm or yarn
-- Angular CLI
-
-npm install -g @angular/cli
-
-2️⃣ Install Dependencies
+## 🚀 Frontend Setup (Quick Start)
 cd frontend
 npm install
-
-3️⃣ Environment Configuration
-
-Edit src/environments/environment.ts:
-
-export const environment = {
-  production: false,
-  apiBaseUrl: 'http://127.0.0.1:8000/api'
-};
-
-## 🚀 Running the Application
 ng serve
 
 
-Frontend will be available at:
+Frontend runs at:
 
 http://localhost:4200/
 
----
+## 🔐 Authentication & Security
 
-## 🔐 Authentication & Authorization
+JWT access & refresh tokens
 
-JWT token stored securely in browser storage
+Role-based route guards
 
-HTTP interceptor attaches token to API requests
+API permission enforcement
 
-Route guards protect private routes
+Secure token handling
 
-Role-based navigation and UI rendering
+Full audit trail for sensitive actions
 
----
+## 🔁 Background Processing
 
-## 📊 Core Features
+Celery workers for async tasks
 
-Role-based dashboards (Admin, Manager, Employee)
+Redis for queues and caching
 
-Dynamic workflow builder interface
+SLA reminder & escalation jobs
 
-Request submission with validation
+Notification delivery
+--- 
+## 📑 API Documentation
 
-Approval inbox with approve/reject actions
+Swagger UI available at:
 
-SLA countdown timers
+http://127.0.0.1:8000/api/docs/
 
-Notification panel with read/unread state
+## 🧪 Testing
+Backend
+python manage.py test
 
-Audit log viewer with filters
-
----
-
-## ⚡ Performance & UX
-
-Lazy-loaded Angular modules
-
-Global loaders & error handling
-
-Optimized API calls using RxJS
-
-Responsive and accessible UI design
-
----
-
-## 🧪 Running Tests
+Frontend
 ng test
 
-📦 Production Build
-ng build --prod
+## 📌 Key Features (Resume-Ready)
 
+Dynamic workflow engine with configurable approval chains
 
-Build artifacts will be generated in the dist/ directory.
+Enterprise-level role-based access control
 
----
+Multi-step, parallel, and conditional approvals
 
-## 📌 Best Practices Followed
+SLA tracking with automatic escalation
 
-Modular architecture
+Complete audit logging for compliance
 
-Separation of concerns
-
-Reusable shared components
-
-Centralized API services
-
-Strong typing with TypeScript
-
-Clean UX for enterprise workflows
+Scalable Angular frontend with modular architecture
 
 ## 🧑‍💻 Author
 
 Enterprise Workflow & Approval Management System
-Frontend developed using Angular
+Backend: Django & Django REST Framework
+Frontend: Angular
