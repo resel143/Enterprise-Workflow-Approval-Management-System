@@ -1,3 +1,67 @@
-backend/workflow_system/.env
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 
-backend/workflow_system/venv
+# =========================
+# Virtual Environments
+# =========================
+venv/
+env/
+.venv/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+*.env
+
+# =========================
+# Django
+# =========================
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Migrations (optional)
+# Keep in team projects, ignore only if solo learning
+# =========================
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Tests / Coverage
+# =========================
+.coverage
+htmlcov/
+
+# =========================
+# Node (if frontend later)
+# =========================
+node_modules/
+dist/
+build/
