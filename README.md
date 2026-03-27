@@ -1,6 +1,6 @@
 # Enterprise Workflow & Approval Management System
 
-**Enterprise-grade, backend-intensive workflow and approval platform** designed to manage multi-level approvals, role-based access control, SLA tracking, audit logging, and real-time notifications.
+**Enterprise, backend-intensive workflow and approval platform** designed to manage multi-level approvals, role-based access control, SLA tracking, audit logging, and real-time notifications.
 
 This project is built to reflect **real-world enterprise architecture** and serves as a **major full-stack capstone project**.
 
